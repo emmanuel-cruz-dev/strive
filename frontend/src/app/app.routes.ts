@@ -1,3 +1,53 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { MainLayout } from './layouts/main-layout/main-layout';
+import { EmptyLayout } from './layouts/empty-layout/empty-layout';
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: MainLayout,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./features/home/home.routes').then((m) => m.HOME_ROUTES),
+      },
+      {
+        path: 'functions',
+        loadChildren: () =>
+          import('./features/functions/functions.routes').then((m) => m.FUNCTIONS_ROUTES),
+      },
+      {
+        path: 'about',
+        loadChildren: () => import('./features/about/about.routes').then((m) => m.ABOUT_ROUTES),
+      },
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./features/contact/contact.routes').then((m) => m.CONTACT_ROUTES),
+      },
+      {
+        path: 'legal',
+        loadChildren: () => import('./features/legal/legal.routes').then((m) => m.LEGAL_ROUTES),
+      },
+      {
+        path: 'auth',
+        loadChildren: () => import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
+      },
+    ],
+  },
+  {
+    path: 'error',
+    component: EmptyLayout,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./features/errors/errors.routes').then((m) => m.ERRORS_ROUTES),
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'error/not-found',
+  },
+];

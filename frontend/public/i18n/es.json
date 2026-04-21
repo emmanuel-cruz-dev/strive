@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "functions": "Funciones",
+    "about": "Sobre nosotros",
+    "contact": "Contacto",
+    "access": "Acceder",
+    "register": "Empezar gratis"
+  }
+}

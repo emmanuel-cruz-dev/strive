@@ -12,10 +12,10 @@
       <a routerLink="/">Inicio</a>
     </li>
     <li nz-menu-item nzMatchRouter>
-      <a routerLink="/about">Sobre nosotros</a>
+      <a routerLink="/functions">Funciones</a>
     </li>
     <li nz-menu-item nzMatchRouter>
-      <a routerLink="/functions">Funciones</a>
+      <a routerLink="/about">Sobre nosotros</a>
     </li>
     <li nz-menu-item nzMatchRouter>
       <a routerLink="/contact">Contacto</a>
@@ -33,6 +33,7 @@
   }
 </header>
 
+@if (isMobile()) {
 <nz-drawer
   [nzVisible]="drawerVisible()"
   nzPlacement="right"
@@ -45,10 +46,10 @@
         <a routerLink="/">Inicio</a>
       </li>
       <li nz-menu-item nzMatchRouter (click)="closeDrawer()">
-        <a routerLink="/about">Sobre nosotros</a>
+        <a routerLink="/functions">Funciones</a>
       </li>
       <li nz-menu-item nzMatchRouter (click)="closeDrawer()">
-        <a routerLink="/functions">Funciones</a>
+        <a routerLink="/about">Sobre nosotros</a>
       </li>
       <li nz-menu-item nzMatchRouter (click)="closeDrawer()">
         <a routerLink="/contact">Contacto</a>
@@ -65,3 +66,4 @@
     </div>
   </ng-container>
 </nz-drawer>
+}

@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -9,6 +9,7 @@ import { NzDrawerModule } from 'ng-zorro-antd/drawer';
   selector: 'app-navbar',
   imports: [RouterLink, NzMenuModule, NzButtonModule, NzIconModule, NzDrawerModule],
   templateUrl: './navbar.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar {
   isMobile = signal(window.innerWidth < 768);

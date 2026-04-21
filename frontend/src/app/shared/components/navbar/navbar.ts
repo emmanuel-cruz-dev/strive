@@ -1,20 +1,22 @@
 import { Component, HostListener, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
-import { ThemeService } from '../../../core';
+import { ThemeService, LanguageService } from '../../../core';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, NzMenuModule, NzButtonModule, NzIconModule, NzDrawerModule],
+  imports: [RouterLink, TranslatePipe, NzMenuModule, NzButtonModule, NzIconModule, NzDrawerModule],
   templateUrl: './navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar {
   readonly themeService = inject(ThemeService);
+  readonly langService = inject(LanguageService);
   isMobile = signal(window.innerWidth < 768);
   drawerVisible = signal(false);
 

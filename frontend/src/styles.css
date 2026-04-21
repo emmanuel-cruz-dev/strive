@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+@custom-variant dark (&:is(.dark *));
+
+/* ========== Start: Navbar ========== */
+
+.dark li.ant-menu-item a {
+  color: white !important;
+}
+
+li.ant-menu-item.ant-menu-item-selected a {
+  color: rgb(105, 104, 104) !important;
+  font-weight: 500;
+}
+
+/* ========== End: Navbar ========== */

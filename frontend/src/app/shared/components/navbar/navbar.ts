@@ -1,9 +1,11 @@
-import { Component, HostListener, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, HostListener, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+
+import { ThemeService } from '../../../core';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +14,7 @@ import { NzDrawerModule } from 'ng-zorro-antd/drawer';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navbar {
+  readonly themeService = inject(ThemeService);
   isMobile = signal(window.innerWidth < 768);
   drawerVisible = signal(false);
 

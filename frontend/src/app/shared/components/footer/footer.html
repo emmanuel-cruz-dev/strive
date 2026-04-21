@@ -1,4 +1,4 @@
-<footer class="bg-white border-t border-gray-100 pt-12 pb-4">
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-100 pt-12 pb-4">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-6">
       <div class="flex flex-col gap-4">
@@ -9,7 +9,7 @@
           <nz-icon nzType="rocket" nzTheme="outline" />
           Strive
         </a>
-        <p class="text-gray-500 text-sm leading-relaxed">
+        <p class="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
           Potenciando tu bienestar financiero con tecnología simple, privada e insights que
           transforman tus decisiones.
         </p>
@@ -21,7 +21,7 @@
             [nzTooltipTitle]="social.label"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-black! hover:text-blue-600! transition-colors"
+            class="text-black! dark:text-gray-300! hover:text-blue-600! transition-colors"
           >
             <nz-icon [nzType]="social.icon" class="text-xl" />
           </a>
@@ -31,7 +31,7 @@
 
       @for (section of footerSections; track section.title) {
       <div>
-        <h4 class="font-bold text-gray-900 mb-6">{{ section.title }}</h4>
+        <h4 class="font-bold text-gray-900 dark:text-gray-300! mb-6">{{ section.title }}</h4>
         <ul class="list-none p-0 flex flex-col gap-3">
           @for (link of section.links; track link.label) {
           <li>
@@ -45,13 +45,13 @@
       }
     </div>
 
-    <nz-divider />
+    <nz-divider class="dark:border-gray-700!" />
 
-    <div class="text-gray-400 text-sm">
+    <div class="text-gray-400 dark:text-gray-300 text-sm">
       <p>
         © 2026 Strive. Desarrollado por
         <a
-          class="text-gray-400! hover:text-blue-600! transition-colors duration-300"
+          class="text-gray-400! dark:text-gray-300! hover:text-blue-600! transition-colors duration-300"
           href="https://emmanuel-cruz.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"

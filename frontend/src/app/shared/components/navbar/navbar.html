@@ -1,5 +1,5 @@
 <header
-  class="flex items-center justify-between px-6 py-0 bg-white shadow-sm h-16 sticky top-0 z-50"
+  class="flex items-center justify-between px-6 py-0 dark:text-white! bg-white dark:bg-gray-900 shadow-sm h-16 sticky top-0 z-50"
 >
   <a routerLink="/" class="flex items-center gap-2 text-xl font-bold text-blue-600 no-underline">
     <nz-icon nzType="rocket" nzTheme="outline" />
@@ -7,29 +7,42 @@
   </a>
 
   @if (!isMobile()) {
-  <ul nz-menu nzMode="horizontal" class="border-0! flex-1 flex justify-center">
+  <ul
+    nz-menu
+    nzMode="horizontal"
+    class="border-0! flex-1 flex justify-center dark:bg-gray-900! transition-none!"
+  >
     <li nz-menu-item nzMatchRouter nzMatchRouterExact>
-      <a routerLink="/">Inicio</a>
+      <a routerLink="/" class="dark:text-white!">Inicio</a>
     </li>
     <li nz-menu-item nzMatchRouter>
-      <a routerLink="/functions">Funciones</a>
+      <a routerLink="/functions" class="dark:text-white!">Funciones</a>
     </li>
     <li nz-menu-item nzMatchRouter>
-      <a routerLink="/about">Sobre nosotros</a>
+      <a routerLink="/about" class="dark:text-white!">Sobre nosotros</a>
     </li>
     <li nz-menu-item nzMatchRouter>
-      <a routerLink="/contact">Contacto</a>
+      <a routerLink="/contact" class="dark:text-white!">Contacto</a>
     </li>
   </ul>
 
+  <button (click)="themeService.toggleTheme()" class="text-xl! cursor-pointer">
+    <nz-icon [nzType]="themeService.isDarkTheme() ? 'moon' : 'sun'" nzTheme="outline" />
+  </button>
+
   <div class="flex items-center gap-3">
-    <a routerLink="/auth/login" nz-button nzType="text">Acceder</a>
+    <a routerLink="/auth/login" nz-button nzType="text" class="dark:text-white!">Acceder</a>
     <a routerLink="/auth/register" nz-button nzType="primary">Empezar gratis</a>
   </div>
   } @if (isMobile()) {
-  <button nz-button nzType="text" (click)="openDrawer()">
-    <nz-icon nzType="menu" nzTheme="outline" class="text-xl" />
-  </button>
+  <div class="flex items-center gap-3">
+    <button (click)="themeService.toggleTheme()" class="text-xl! cursor-pointer">
+      <nz-icon [nzType]="themeService.isDarkTheme() ? 'moon' : 'sun'" nzTheme="outline" />
+    </button>
+    <button nz-button nzType="text" (click)="openDrawer()" class="dark:text-white! text-xl!">
+      <nz-icon nzType="menu" nzTheme="outline" />
+    </button>
+  </div>
   }
 </header>
 
@@ -39,9 +52,13 @@
   nzPlacement="right"
   nzTitle="Menú"
   (nzOnClose)="closeDrawer()"
+  [nzBodyStyle]="{
+    'background-color': themeService.isDarkTheme() ? '#111827' : '#ffffff',
+    color: themeService.isDarkTheme() ? '#ffffff' : '#000000'
+  }"
 >
   <ng-container *nzDrawerContent>
-    <ul nz-menu nzMode="inline" class="border-0">
+    <ul nz-menu nzMode="inline" class="border-0 dark:bg-gray-900! transition-none!">
       <li nz-menu-item nzMatchRouter nzMatchRouterExact (click)="closeDrawer()">
         <a routerLink="/">Inicio</a>
       </li>
